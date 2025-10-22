@@ -52,7 +52,7 @@ Yes it's **Windows**
    - 4.5 [Restarting your system](#restart)
    - 4.6 [Change MSYS2 home directory](#change-msys2-home-directory)
    - 4.7 [Install Zsh](#install-zsh)
-   &nbsp;&nbsp;&nbsp;&nbsp;4.7.1 [Note](#note) <!-- Indentation dumbfix -->
+      - 4.7.1 [Note](#note)
    - 4.8 [Install VS Code Extensions for Theming](#install-vs-code-extensions-for-theming)
    - 4.9 [Auto start GlazeWM & Zebar at windows start](#auto-start-glazewm--zebar-at-windows-start)
 5. [Basic usage](#-basic-usage)
