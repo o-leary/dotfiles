@@ -194,6 +194,9 @@ If you don't want to display it, feel free to just leave it commented out(or del
     - Alt+Tab is broken for the above
     - Common executables like run, or even properties of a file/folder are opened behind the current explorer window -->
 
+### 🔥 Step By Step Installation Video ⭐
+
+**[View Installation Video](https://www.youtube.com/watch?v=7uYbdCsaLSc)**
 
 ### 0️⃣ Pre-install notices
 
