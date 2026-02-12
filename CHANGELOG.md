@@ -1,5 +1,18 @@
 # aquapaka-dotfiles
 
+## 3.4.0
+
+### Minor Changes
+
+- 4a32628: fix: vertical align wifi icon
+- 1a6bce8: feat: update btop4win version to 1.0.5
+
+### Patch Changes
+
+- 602ad56: feat: correct some style
+- cf917fc: docs: add installation video
+- ed6f57b: fix: terminal theme not working (set terminal theme to dark seems to fix it)
+
 ## 3.3.0
 
 ### Minor Changes
