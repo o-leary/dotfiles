@@ -1,20 +1,3 @@
-<!--
-  To the owner of the repository, please feel free to update CHANGELOG and delete this comment after reading.
-  CHANGES MADE:
-  - Added Table of Contents
-  - Moved Themes behind Introduction
-  - Added Horizontal Lines to make things fabulous 💫
-  - Edited Optional Tweaks to be its own section
-  - Moved Other Information inside Optional Tweaks section
-  - Changed Step by Step Installation to Installation Guide
-  - Added a Testing subsection within Installation Guide
-  - Added a small note about MSYS2 home directory change in Installation Guide
-  - Themes have their own subsection for better navigation in Table of Contents
-  - Added small tweak information about reverting back to floating mode(i.e default Windows mode) for GlazeWM in Optional Tweaks section
-
-  PS: I have not changed any pre-existing content, just rearranged things for better readability. There are some minor grammar problems, however I have not changed them as I am not sure if you want me fiddling around with your writing style.
- -->
-
 # 🍙 My Ricing Dotfiles for Windows 11
 
 Yes it's **Windows**
@@ -26,6 +9,8 @@ Yes it's **Windows**
 
 ---
 
+<!--
+I haven't have time to correctly refine this so I'll leave it commented for a while
 ## 📑 Table of Contents
 
 1. [Introduction](#introduction)
@@ -52,7 +37,6 @@ Yes it's **Windows**
    - 4.5 [Restarting your system](#restart)
    - 4.6 [Change MSYS2 home directory](#change-msys2-home-directory)
    - 4.7 [Install Zsh](#install-zsh)
-      - 4.7.1 [Note](#note)
    - 4.8 [Install VS Code Extensions for Theming](#install-vs-code-extensions-for-theming)
    - 4.9 [Auto start GlazeWM & Zebar at windows start](#auto-start-glazewm--zebar-at-windows-start)
 5. [Basic usage](#-basic-usage)
@@ -61,7 +45,7 @@ Yes it's **Windows**
     - 5.3 [Useful keybindings](#useful-keybindings)
 6. [Optional Tweaks](#optional-tweaks)
 
----
+--- -->
 
 ## Introduction
 
@@ -125,8 +109,6 @@ Dive in, tweak to your heart's content, and transform your Windows environment i
 | ![shuri-1](rice-previews/shuri-1.png) |
 | ![shuri-2](rice-previews/shuri-2.png) |
 
-<!-- Why are the themes in the bottom commented out? -->
-
 <!--
 | 🕹️ arcade |
 | :---: |
@@ -184,14 +166,10 @@ You can customize each theme inside `~/.rice-manager/rices` and re-apply it (see
 
 ## Installation Guide
 
-### Testing
 
-- This project has been officially tested and works 100% (as of 16/5/2025)
-<!-- Please provide testing environment details
-  - Windows Version
-  - Hardware Specs
-  - Relevant software versions
--->
+<!-- ### Testing
+
+- This project has been officially tested and works 100% (as of 19/1/2026) by the author. -->
 
 <!--
 To the owner of the repository
@@ -225,7 +203,7 @@ If you don't want to display it, feel free to just leave it commented out(or del
   - `winget uninstall ...` all packages you have installed through `install-packages.ps1`
   - Remove added task scheduler tasks
   - Remove added config files in `~/.config`
-- If you have just fresh install windows 11, you need to go to Microsoft Store and update your "App Installer". Otherwise winget will not working.
+- If you have just fresh install windows 11 and your winget command is not working, you need to go to Microsoft Store and update your "App Installer".
 - For those who use another windows 11 version (like IOT Enterprise LTSC, which doesn't come with Microsoft Store):
   - First download the latest version of winget: <https://aka.ms/getwinget>
   - Then open Powershell and run: `Add-AppxPackage -Path <path to downloaded .msixbundle>` to install winget
@@ -283,7 +261,6 @@ db_home: windows
 ```
 
 This will set windows user folder as default home directory. Otherwise zsh won't see it config file from user's directory.
-PS: Default windows home directory is `C:\Windows\System32`
 
 ### 7️⃣ Install Zsh
 
@@ -300,13 +277,15 @@ pacman -S zsh
 
 Open **Powershell**, from your user folder (Example: `C:\Users\JadeTam>`), run below command to install zsh themes and configs
 
+<!--
+
 #### Note:
 
 > ⚠️ If you do end up using an MSYS2 console, make sure to
 > change directory to your user folder.
 > You can do this by running:
 > ~ cd /c/
-> ~ cd Users/JadeTam (replace JadeTam with your actual username)
+> ~ cd Users/JadeTam (replace JadeTam with your actual username) -->
 
 ```
 # Install Theme: Powerlevel10k
@@ -395,7 +374,6 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ./.config/zs
   - Run `scripts/high-ram-tuning.ps1` with **Powershell**.
 - Restore old context menu (Require restart):
   - Open/Run `scripts/Restore-old-context-menu.reg`.
-  <!-- It seems the bottom tweak is meant to be commented out. Feel free to uncomment if needed. -->
   <!-- - Fix terminal cursor glitching while typing: (This is only working with Alacritty, current version using Windows Terminal)
   - Run `scripts/terminal-cursor-fix.sh`
   - Close then re-open terminal
