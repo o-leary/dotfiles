@@ -164,7 +164,7 @@ You can customize each theme inside `~/.rice-manager/rices` and re-apply it (see
 
 ---
 
-## Installation Guide
+## Installation Guide (last tested 19/01/2026, follow below video)
 
 
 <!-- ### Testing
