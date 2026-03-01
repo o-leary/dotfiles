@@ -68,6 +68,8 @@ set_vscode_theme() {
   VSCODE_SETTINGS="$WIN_HOME/AppData/Roaming/Code/User/settings.json"
   RICE_SETTINGS="./rices/$theme/vscode-theme-settings.json"
 
+  echo $RICE_SETTINGS
+
   jq -s '.[0] * .[1]' \
     "$VSCODE_SETTINGS" \
     "$RICE_SETTINGS" > tmp.json \
