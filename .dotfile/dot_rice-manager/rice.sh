@@ -36,7 +36,7 @@ set_zebar_theme() {
 # Set glazewm config
 set_glazewm_config() {
   echo "Applying GlazeWM border color..."
-  SETTING_FILE_PATH=$USERPROFILE\\.glzr\\glazewm\\config.yaml
+  SETTING_FILE_PATH=~/.glzr/glazewm/config.yaml
   RICE_SETTING_FILE_PATH=./rices/$theme/settings.json
 
   focused_color=$(jq -r '.glazewmConfig.focusedWindowsColor' "$RICE_SETTING_FILE_PATH")
@@ -71,7 +71,7 @@ set_vscode_theme() {
 # Set windows terminal theme
 set_windows_terminal_theme() {
   echo "Applying windows terminal theme..."
-  SETTING_FILE_PATH=~\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json
+  SETTING_FILE_PATH=~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json
   RICE_SETTING_FILE_PATH=./rices/$theme/settings.json
   jq ".profiles.defaults.colorScheme = input.windowsTerminalTheme" $SETTING_FILE_PATH $RICE_SETTING_FILE_PATH > tmp.json && mv tmp.json $SETTING_FILE_PATH
   jq ".profiles.defaults.font += input.windowsTerminalFont" $SETTING_FILE_PATH $RICE_SETTING_FILE_PATH > tmp.json && mv tmp.json $SETTING_FILE_PATH
