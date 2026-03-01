@@ -64,7 +64,14 @@ set_glazewm_config() {
 # Set VSCode theme
 set_vscode_theme() {
   echo "Applying VSCode theme..."
-  echo "$(jq -s '.[0] * .[1]' ~/AppData/Roaming/Code/User/settings.json ./rices/$theme/vscode-theme-settings.json)" > tmp.json && mv tmp.json ~/AppData/Roaming/Code/User/settings.json
+  WIN_HOME=$(wslpath "$(cmd.exe /c echo %USERPROFILE% | tr -d '\r')")
+  VSCODE_SETTINGS="$WIN_HOME/AppData/Roaming/Code/User/settings.json"
+  RICE_SETTINGS="./rices/$theme/vscode-theme-settings.json"
+
+  jq -s '.[0] * .[1]' \
+    "$VSCODE_SETTINGS" \
+    "$RICE_SETTINGS" > tmp.json \
+    && mv tmp.json "$VSCODE_SETTINGS"
   echo "✅ VSCode theme applied!"
 }
 
