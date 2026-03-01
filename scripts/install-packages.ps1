@@ -3,11 +3,11 @@ winget install Git.Git -e -i;
 winget install Microsoft.WindowsTerminal --silent
 winget install --id glzr-io.glazewm --exact --version 3.9.1 --no-upgrade --silent
 # winget install --id glzr-io.zebar --exact --version 3.1.1 --no-upgrade --silent # Zebar now come with glazewm
-winget install --id eza-community.eza -e --silent;
+#winget install --id eza-community.eza -e --silent;
 winget install --id MikeFarah.yq;
 winget install --id jqlang.jq --silent;
 winget install --id Microsoft.PowerToys -e --silent;
-winget install --id MSYS2.MSYS2 -e --silent;
+#winget install --id MSYS2.MSYS2 -e --silent; #not needed with WSL
 
 # Application (comment out things you don't need before running this script)
 #winget install --id Discord.Discord -e --silent;
