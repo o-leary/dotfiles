@@ -71,7 +71,8 @@ set_vscode_theme() {
 # Set windows terminal theme
 set_windows_terminal_theme() {
   echo "Applying windows terminal theme..."
-  SETTING_FILE_PATH=$(wslpath "$(cmd.exe /c echo %USERPROFILE%)")/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json
+  WIN_HOME=$(wslpath "$(cmd.exe /c echo %USERPROFILE%)")
+  SETTING_FILE_PATH="$WIN_HOME/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
   RICE_SETTING_FILE_PATH=./rices/$theme/settings.json
   jq ".profiles.defaults.colorScheme = input.windowsTerminalTheme" $SETTING_FILE_PATH $RICE_SETTING_FILE_PATH > tmp.json && mv tmp.json $SETTING_FILE_PATH
   jq ".profiles.defaults.font += input.windowsTerminalFont" $SETTING_FILE_PATH $RICE_SETTING_FILE_PATH > tmp.json && mv tmp.json $SETTING_FILE_PATH
