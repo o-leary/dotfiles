@@ -57,7 +57,7 @@ set_glazewm_config() {
     "$SETTING_FILE_PATH" > tmp.yaml && mv tmp.yaml "$SETTING_FILE_PATH"
 
   echo "Reload GlazeWM configs..."
-  glazewm command wm-reload-config > /dev/null
+  powershell.exe "glazewm command wm-reload-config | Out-Null";
   echo "✅ GlazeWM theme applied!"
 }
 
@@ -71,7 +71,7 @@ set_vscode_theme() {
 # Set windows terminal theme
 set_windows_terminal_theme() {
   echo "Applying windows terminal theme..."
-  SETTING_FILE_PATH=$USERPROFILE\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json
+  SETTING_FILE_PATH=~\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json
   RICE_SETTING_FILE_PATH=./rices/$theme/settings.json
   jq ".profiles.defaults.colorScheme = input.windowsTerminalTheme" $SETTING_FILE_PATH $RICE_SETTING_FILE_PATH > tmp.json && mv tmp.json $SETTING_FILE_PATH
   jq ".profiles.defaults.font += input.windowsTerminalFont" $SETTING_FILE_PATH $RICE_SETTING_FILE_PATH > tmp.json && mv tmp.json $SETTING_FILE_PATH
@@ -83,24 +83,24 @@ change_windows_lightdark_mode() {
   echo "Changing windows color scheme..."
   WINDOWS_THEME=$(jq -r '.windowsTheme' ./rices/$theme/settings.json)
   if [ $WINDOWS_THEME == dark ]
-    then powershell "New-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name SystemUsesLightTheme -Value '0' -Type Dword -Force | Out-Null";
-         powershell "New-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name AppsUseLightTheme -Value '0' -Type Dword -Force | Out-Null"
+    then powershell.exe "New-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name SystemUsesLightTheme -Value '0' -Type Dword -Force | Out-Null";
+         powershell.exe "New-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name AppsUseLightTheme -Value '0' -Type Dword -Force | Out-Null"
   elif [ $WINDOWS_THEME == light ]
-    then powershell "New-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name SystemUsesLightTheme -Value '1' -Type Dword -Force | Out-Null";
-         powershell "New-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name AppsUseLightTheme -Value '1' -Type Dword -Force | Out-Null"
+    then powershell.exe "New-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name SystemUsesLightTheme -Value '1' -Type Dword -Force | Out-Null";
+         powershell.exe "New-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name AppsUseLightTheme -Value '1' -Type Dword -Force | Out-Null"
   else
     echo "Error: windows-theme must be light or dark"
     return 1
   fi
   echo "Restart explorer... (⚠️Noticed bug: Taskbar might take sometime to show up)"
-  powershell "taskkill /F /IM explorer.exe | Out-Null; start explorer"
+  powershell.exe "taskkill /F /IM explorer.exe | Out-Null; start explorer"
   echo "✅ Windows color scheme changed!"
 }
 
 # Set desktop wallpaper
 set_desktop_wallpaper() {
   echo "Changing desktop wallpaper..."
-  powershell ./wackground.ps1 ./rices/$theme/wallpapers --set-random
+  powershell.exe ./wackground.ps1 ./rices/$theme/wallpapers --set-random
   echo "✅ Desktop wallpaper changed!"
 }
 
