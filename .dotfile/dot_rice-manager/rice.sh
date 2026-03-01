@@ -28,8 +28,8 @@ set_zebar_theme() {
   cp -r ./rices/$theme/dotfile-bar ~/.glzr/zebar/dotfile-bar
   # Restart Zebar
   echo "Restarting Zebar..."
-  taskkill -IM zebar.exe -F > /dev/null 2>&1
-  start zebar > /dev/null 2>&1 &
+  powershell.exe "taskkill -IM zebar.exe -F | Out-Null";
+  powershell.exe "start zebar | Out-Null";
   echo "✅ Zebar theme applied!"
 }
 
@@ -61,14 +61,20 @@ set_glazewm_config() {
   echo "✅ GlazeWM theme applied!"
 }
 
-# Set VSCode theme
 set_vscode_theme() {
   echo "Applying VSCode theme..."
+
   WIN_HOME=$(wslpath "$(cmd.exe /c echo %USERPROFILE% | tr -d '\r')")
   VSCODE_SETTINGS="$WIN_HOME/AppData/Roaming/Code/User/settings.json"
   RICE_SETTINGS="./rices/$theme/vscode-theme-settings.json"
 
-  jq -s '(.[0] // {}) * .[1]' \
+  # Ensure file is valid JSON object
+  # Overwrite the file with {} if it's empty or contains only whitespace
+  if [ ! -s "$VSCODE_SETTINGS" ] || ! grep -q '[^[:space:]]' "$VSCODE_SETTINGS"; then
+    printf '{}' > "$VSCODE_SETTINGS"
+  fi
+
+  jq '. as $base | input | $base * .' \
     "$VSCODE_SETTINGS" \
     "$RICE_SETTINGS" > tmp.json \
     && mv tmp.json "$VSCODE_SETTINGS"
