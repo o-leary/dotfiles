@@ -160,10 +160,38 @@ workspaces:
   - name: "0"
     keep_alive: true
     bind_to_monitor: 1
-  # Workspace for leftmost screen to prevent error
-  - name: "LeftMonitorFix"
-    keep_alive: false
+  # Workspace for leftmost screen
+  - name: "L1"
+    keep_alive: true
     bind_to_monitor: 0
+  - name: "L2"
+    keep_alive: true
+    bind_to_monitor: 0
+  - name: "L3"
+    keep_alive: true
+    bind_to_monitor: 0
+  - name: "L4"
+    keep_alive: true
+    bind_to_monitor: 0
+  - name: "L5"
+    keep_alive: true
+    bind_to_monitor: 0
+  - name: "L6"
+    keep_alive: true
+    bind_to_monitor: 0
+  - name: "L7"
+    keep_alive: true
+    bind_to_monitor: 0
+  - name: "L8"
+    keep_alive: true
+    bind_to_monitor: 0
+  - name: "L9"
+    keep_alive: true
+    bind_to_monitor: 0
+  - name: "L0"
+    keep_alive: true
+    bind_to_monitor: 0
+  # Workspace for rightmost screen to prevent error
   - name: "RightMonitorFix"
     keep_alive: false
     bind_to_monitor: 2
