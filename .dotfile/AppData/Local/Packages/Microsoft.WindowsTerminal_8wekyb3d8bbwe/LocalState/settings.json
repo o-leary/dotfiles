@@ -48,7 +48,6 @@
       "keys": "alt+shift+d"
     }
   ],
-  "launchMode": "focus",
   "newTabMenu": [
     {
       "type": "remainingProfiles"
@@ -102,6 +101,12 @@
         "hidden": false,
         "name": "Git Bash",
         "source": "Git"
+      },
+      {
+        "guid": "{2e57f50d-eef9-5073-b76b-c5b8c3c4a752}",
+        "hidden": false,
+        "name": "Ubuntu",
+        "source": "Microsoft.WSL"
       }
     ]
   },
