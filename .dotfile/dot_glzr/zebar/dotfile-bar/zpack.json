@@ -37,7 +37,7 @@
             "type": "all"
           },
           "dockToEdge": {
-            "enabled": true,
+            "enabled": false,
             "edge": "top",
             "windowMargin": "0px"
           }
