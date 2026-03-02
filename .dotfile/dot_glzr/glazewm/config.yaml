@@ -4,7 +4,7 @@ general:
   # script or launching another application.
 
   # Example: The below command launches Zebar.
-  startup_commands: ["shell-exec zebar", "move --workspace 2", "move --workspace 3", "move --workspace 4", "move --workspace 5", "move --workspace 6", "move --workspace 7", "move --workspace 8", "move --workspace 9", "move --workspace 0", "move --workspace 1"]
+  startup_commands: ["shell-exec zebar", "move --workspace 2", "move --workspace 3", "move --workspace 4", "move --workspace 0", "move --workspace 1"]
   # Commands to run just before the WM is shutdown.
 
   # Example: The below command kills Zebar.
@@ -86,7 +86,7 @@ window_effects:
       style: "small_rounded"
     # Change the transparency of the window.
     transparency:
-      enabled: false
+      enabled: true
       # Can be something like '95%' or '0.95' for slightly transparent windows.
       # '0' or '0%' is fully transparent (and, by consequence, unfocusable).
       opacity: "95%"
@@ -101,8 +101,8 @@ window_effects:
       enabled: true
       style: "small_rounded"
     transparency:
-      enabled: false
-      opacity: "0%"
+      enabled: true
+      opacity: "95%"
 window_behavior:
   # New windows are created in this state whenever possible.
 
@@ -142,21 +142,6 @@ workspaces:
   - name: "4"
     keep_alive: true
     bind_to_monitor: 1
-  - name: "5"
-    keep_alive: true
-    bind_to_monitor: 1
-  - name: "6"
-    keep_alive: true
-    bind_to_monitor: 1
-  - name: "7"
-    keep_alive: true
-    bind_to_monitor: 1
-  - name: "8"
-    keep_alive: true
-    bind_to_monitor: 1
-  - name: "9"
-    keep_alive: true
-    bind_to_monitor: 1
   - name: "0"
     keep_alive: true
     bind_to_monitor: 1
@@ -171,21 +156,6 @@ workspaces:
     keep_alive: true
     bind_to_monitor: 0
   - name: "L4"
-    keep_alive: true
-    bind_to_monitor: 0
-  - name: "L5"
-    keep_alive: true
-    bind_to_monitor: 0
-  - name: "L6"
-    keep_alive: true
-    bind_to_monitor: 0
-  - name: "L7"
-    keep_alive: true
-    bind_to_monitor: 0
-  - name: "L8"
-    keep_alive: true
-    bind_to_monitor: 0
-  - name: "L9"
     keep_alive: true
     bind_to_monitor: 0
   - name: "L0"
@@ -225,7 +195,7 @@ window_rules:
   #   match:
   #     - window_process: {regex: ""}
   #       window_title: {regex: ".*? - File Explorer"}
-  - commands: ["move --workspace 5"]
+  - commands: ["move --workspace 4"]
     # - commands: ["move --workspace 2", "focus --workspace 2"]
     #   match:
     #     - window_process: {regex: "msedge|brave|chrome"}
@@ -237,10 +207,10 @@ window_rules:
 
     match:
       - window_process: {regex: "Discord"}
-  - commands: ["move --workspace 7"]
+  - commands: ["move --workspace 4"]
     match:
       - window_process: {regex: "Riot Client|LeagueClientUx|steamwebhelper"}
-  - commands: ["move --workspace 9", "focus --workspace 9"]
+  - commands: ["move --workspace 4", "focus --workspace 9"]
     # [9] Stream Workspace
 
     match:
@@ -389,16 +359,6 @@ keybindings:
     bindings: ["alt+3"]
   - commands: ["focus --workspace 4"]
     bindings: ["alt+4"]
-  - commands: ["focus --workspace 5"]
-    bindings: ["alt+5"]
-  - commands: ["focus --workspace 6"]
-    bindings: ["alt+6"]
-  - commands: ["focus --workspace 7"]
-    bindings: ["alt+7"]
-  - commands: ["focus --workspace 8"]
-    bindings: ["alt+8"]
-  - commands: ["focus --workspace 9"]
-    bindings: ["alt+9"]
   - commands: ["focus --workspace 0"]
     bindings: ["alt+0"]
   - commands: ["move-workspace --direction left"]
@@ -422,15 +382,5 @@ keybindings:
     bindings: ["alt+shift+3"]
   - commands: ["move --workspace 4", "focus --workspace 4"]
     bindings: ["alt+shift+4"]
-  - commands: ["move --workspace 5", "focus --workspace 5"]
-    bindings: ["alt+shift+5"]
-  - commands: ["move --workspace 6", "focus --workspace 6"]
-    bindings: ["alt+shift+6"]
-  - commands: ["move --workspace 7", "focus --workspace 7"]
-    bindings: ["alt+shift+7"]
-  - commands: ["move --workspace 8", "focus --workspace 8"]
-    bindings: ["alt+shift+8"]
-  - commands: ["move --workspace 9", "focus --workspace 9"]
-    bindings: ["alt+shift+9"]
   - commands: ["move --workspace 0", "focus --workspace 0"]
     bindings: ["alt+shift+0"]
